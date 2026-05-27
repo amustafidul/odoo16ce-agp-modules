@@ -1,23 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Modernize the main content area -->
-    <template id="modern_content_view" inherit_id="web.action_manager">
-        <xpath expr="//div[hasclass('o_action_manager')]" position="attributes">
-            <attribute name="class">o_action_manager agp-modern-content</attribute>
+    <!-- Modern Assets Bundle - Extended -->
+    <template id="modern_assets_bundle" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/agp_modern_theme_ib/static/src/css/theme.css"/>
+            <script type="module" src="/agp_modern_theme_ib/static/src/js/theme.js"/>
         </xpath>
     </template>
     
-    <!-- Add modern header to menubar -->
-    <template id="modern_menubar" inherit_id="web.menu">
-        <xpath expr="//nav" position="attributes">
-            <attribute name="class">agp-modern-menubar</attribute>
-        </xpath>
-    </template>
-    
-    <!-- Modernize navbar -->
-    <template id="modern_navbar_customize" inherit_id="web.navbar">
-        <xpath expr="//nav[hasclass('o_main_navbar')]" position="attributes">
-            <attribute name="class">o_main_navbar agp-modern-navbar</attribute>
-        </xpath>
+    <!-- Modern Web Client Layout -->
+    <template id="modern_webclient_layout" name="Modern Web Client">
+        <t t-call="web.webclient_layout">
+            <t t-set="body_classname" t-value="'agp-modern-theme ' + (body_classname or '')"/>
+        </t>
     </template>
 </odoo>
