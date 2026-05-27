@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <!-- Dashboard-style App Menu (Grid Layout, No Dropdown) -->
-    <template id="modern_app_menu_dashboard" inherit_id="web.app_menu">
+    <template id="modern_app_menu_dashboard" inherit_id="web.menu_apps">
         <xpath expr="//div[hasclass('o_menu_apps')]" position="replace">
             <div class="o_menu_apps agp-app-menu-dashboard">
                 <div class="agp-apps-grid-container">
@@ -17,7 +17,7 @@
             </div>
         </xpath>
     </template>
-
+    
     <!-- Modern Submenu - Grid Style -->
     <template id="modern_submenu_grid" inherit_id="web.menu_secondary">
         <xpath expr="//div[hasclass('o_menu_submenu')]" position="replace">
@@ -43,13 +43,6 @@
                 <i t-att-class="menu.get('icon', 'fa fa-circle')" class="agp-menu-item-icon"/>
                 <span t-esc="menu['name']" class="agp-menu-item-name"/>
             </a>
-        </xpath>
-    </template>
-
-    <!-- Modernize the navbar -->
-    <template id="modern_navbar" inherit_id="web.navbar">
-        <xpath expr="//nav[hasclass('o_main_navbar')]" position="attributes">
-            <attribute name="class">o_main_navbar agp-modern-navbar</attribute>
         </xpath>
     </template>
 </odoo>
