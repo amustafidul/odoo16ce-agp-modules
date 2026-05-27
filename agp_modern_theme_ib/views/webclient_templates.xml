@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Inherit webclient template for modern styling -->
-    <template id="modern_webclient_layout" inherit_id="web.webclient">
-        <xpath expr="//div[@id='oe_application']" position="before">
-            <t t-if="not no_menu">
-                <div class="agp-modern-header">
-                    <div class="agp-header-content">
-                        <span class="agp-company-name">Odoo 16 Modern</span>
-                    </div>
-                </div>
-            </t>
-        </xpath>
-    </template>
-
     <!-- Modernize the main content area -->
-    <template id="modern_content_view" inherit_id="web.content">
+    <template id="modern_content_view" inherit_id="web.action_manager">
         <xpath expr="//div[hasclass('o_action_manager')]" position="attributes">
             <attribute name="class">o_action_manager agp-modern-content</attribute>
+        </xpath>
+    </template>
+    
+    <!-- Add modern header to menubar -->
+    <template id="modern_menubar" inherit_id="web.menu">
+        <xpath expr="//nav" position="attributes">
+            <attribute name="class">agp-modern-menubar</attribute>
+        </xpath>
+    </template>
+    
+    <!-- Modernize navbar -->
+    <template id="modern_navbar_customize" inherit_id="web.navbar">
+        <xpath expr="//nav[hasclass('o_main_navbar')]" position="attributes">
+            <attribute name="class">o_main_navbar agp-modern-navbar</attribute>
         </xpath>
     </template>
 </odoo>
