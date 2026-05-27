@@ -1,0 +1,538 @@
+/* AGP Modern Theme - Main CSS Styles */
+/* Beautiful and Modern Backend Theme for Odoo 16 Community */
+
+/* ============================================
+   COLOR VARIABLES - Modern Color Palette
+   ============================================ */
+:root {
+    --agp-primary-color: #6366f1;
+    --agp-primary-dark: #4f46e5;
+    --agp-primary-light: #818cf8;
+    --agp-secondary-color: #ec4899;
+    --agp-accent-color: #06b6d4;
+    --agp-success-color: #10b981;
+    --agp-warning-color: #f59e0b;
+    --agp-danger-color: #ef4444;
+    --agp-info-color: #3b82f6;
+    --agp-bg-light: #f8fafc;
+    --agp-bg-white: #ffffff;
+    --agp-bg-dark: #1e293b;
+    --agp-text-primary: #1e293b;
+    --agp-text-secondary: #64748b;
+    --agp-text-light: #94a3b8;
+    --agp-border-color: #e2e8f0;
+    --agp-border-radius: 12px;
+    --agp-border-radius-sm: 8px;
+    --agp-border-radius-lg: 16px;
+    --agp-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+    --agp-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --agp-shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.12);
+    --agp-shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.15);
+    --agp-shadow-elegant: 0 8px 32px rgba(99, 102, 241, 0.15);
+}
+
+.agp-smooth-transitions * {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.o_web_client {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ============================================
+   MODERN HEADER
+   ============================================ */
+.agp-modern-header {
+    background: linear-gradient(135deg, var(--agp-primary-color) 0%, var(--agp-primary-dark) 100%);
+    color: white;
+    padding: 12px 24px;
+    box-shadow: var(--agp-shadow-lg);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.agp-header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.agp-company-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================
+   DASHBOARD APP MENU - GRID LAYOUT
+   ============================================ */
+.agp-app-menu-dashboard {
+    background: var(--agp-bg-white);
+    border-radius: var(--agp-border-radius-lg);
+    padding: 24px;
+    box-shadow: var(--agp-shadow-elegant);
+    margin: 20px;
+}
+
+.agp-apps-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.agp-app-item {
+    background: linear-gradient(135deg, var(--agp-bg-white) 0%, #f8fafc 100%);
+    border: 2px solid var(--agp-border-color);
+    border-radius: var(--agp-border-radius);
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 140px;
+}
+
+.agp-app-item:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--agp-shadow-xl);
+    border-color: var(--agp-primary-light);
+    background: linear-gradient(135deg, var(--agp-primary-color) 0%, var(--agp-primary-dark) 100%);
+    color: white;
+}
+
+.agp-app-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    border-radius: var(--agp-border-radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, var(--agp-primary-light) 0%, var(--agp-primary-color) 100%);
+    transition: all 0.3s ease;
+}
+
+.agp-app-item:hover .agp-app-icon-wrapper {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+.agp-app-icon {
+    font-size: 28px;
+    color: white;
+}
+
+.agp-app-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--agp-text-primary);
+    transition: color 0.3s ease;
+    line-height: 1.4;
+}
+
+.agp-app-item:hover .agp-app-name {
+    color: white;
+}
+
+/* ============================================
+   MODERN SUBMENU GRID
+   ============================================ */
+.agp-submenu-grid {
+    background: var(--agp-bg-white);
+    border-radius: var(--agp-border-radius);
+    padding: 16px;
+    box-shadow: var(--agp-shadow-md);
+    margin: 10px;
+}
+
+.agp-submenu-header {
+    padding: 8px 0;
+    margin-bottom: 12px;
+    border-bottom: 2px solid var(--agp-border-color);
+}
+
+.agp-submenu-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--agp-primary-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.agp-submenu-items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.agp-modern-menu-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    border-radius: var(--agp-border-radius-sm);
+    color: var(--agp-text-primary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    background: var(--agp-bg-light);
+    border: 1px solid transparent;
+}
+
+.agp-modern-menu-item:hover {
+    background: linear-gradient(135deg, var(--agp-primary-color) 0%, var(--agp-primary-dark) 100%);
+    color: white;
+    transform: translateX(5px);
+    box-shadow: var(--agp-shadow-md);
+}
+
+.agp-menu-item-icon {
+    margin-right: 12px;
+    font-size: 16px;
+    width: 20px;
+    text-align: center;
+}
+
+.agp-menu-item-name {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+/* ============================================
+   MODERN FORM VIEW
+   ============================================ */
+.agp-modern-form {
+    background: var(--agp-bg-white);
+    border-radius: var(--agp-border-radius-lg);
+    box-shadow: var(--agp-shadow-md);
+    padding: 24px;
+    border: 1px solid var(--agp-border-color);
+}
+
+.agp-modern-form .o_form_sheet_bg {
+    background: var(--agp-bg-white);
+    border-radius: var(--agp-border-radius);
+    box-shadow: var(--agp-shadow-sm);
+}
+
+.agp-modern-form .o_form_view_container {
+    background: var(--agp-bg-white);
+}
+
+.agp-modern-form .o_horizontal_separator {
+    color: var(--agp-primary-color);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 3px solid var(--agp-primary-light);
+    padding-bottom: 8px;
+}
+
+.agp-modern-form .o_field_widget {
+    border-radius: var(--agp-border-radius-sm);
+    border: 2px solid var(--agp-border-color);
+    padding: 10px 14px;
+    transition: all 0.3s ease;
+}
+
+.agp-modern-form .o_field_widget:focus-within {
+    border-color: var(--agp-primary-color);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+/* ============================================
+   MODERN TREE/LIST VIEW
+   ============================================ */
+.agp-modern-tree {
+    background: var(--agp-bg-white);
+    border-radius: var(--agp-border-radius-lg);
+    box-shadow: var(--agp-shadow-md);
+    overflow: hidden;
+}
+
+.agp-modern-tree .o_list_view {
+    background: var(--agp-bg-white);
+}
+
+.agp-modern-tree .o_list_table thead th {
+    background: linear-gradient(135deg, var(--agp-primary-color) 0%, var(--agp-primary-dark) 100%);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 14px 16px;
+    border: none;
+}
+
+.agp-modern-tree .o_list_table tbody tr {
+    transition: all 0.2s ease;
+    border-bottom: 1px solid var(--agp-border-color);
+}
+
+.agp-modern-tree .o_list_table tbody tr:hover {
+    background: linear-gradient(90deg, rgba(99, 102, 241, 0.08) 0%, transparent 100%);
+    transform: scale(1.01);
+}
+
+.agp-modern-tree .o_list_table tbody td {
+    padding: 12px 16px;
+    vertical-align: middle;
+}
+
+/* ============================================
+   MODERN KANBAN VIEW
+   ============================================ */
+.agp-modern-kanban {
+    background: var(--agp-bg-light);
+    border-radius: var(--agp-border-radius-lg);
+    padding: 20px;
+}
+
+.agp-modern-kanban .o_kanban_renderer {
+    background: var(--agp-bg-light);
+}
+
+.agp-modern-kanban .o_kanban_card {
+    background: var(--agp-bg-white);
+    border-radius: var(--agp-border-radius);
+    box-shadow: var(--agp-shadow-md);
+    border: none;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.agp-modern-kanban .o_kanban_card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--agp-shadow-xl);
+}
+
+.agp-modern-kanban .o_kanban_record {
+    background: var(--agp-bg-white);
+}
+
+/* ============================================
+   MODERN CALENDAR VIEW
+   ============================================ */
+.agp-modern-calendar {
+    background: var(--agp-bg-white);
+    border-radius: var(--agp-border-radius-lg);
+    box-shadow: var(--agp-shadow-md);
+    padding: 20px;
+}
+
+.agp-modern-calendar .fc-theme-standard .fc-scrollgrid {
+    border-radius: var(--agp-border-radius);
+    overflow: hidden;
+}
+
+.agp-modern-calendar .fc-col-header-cell {
+    background: linear-gradient(135deg, var(--agp-primary-color) 0%, var(--agp-primary-dark) 100%);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 12px;
+}
+
+.agp-modern-calendar .fc-daygrid-day.fc-day-today {
+    background: rgba(99, 102, 241, 0.08);
+}
+
+.agp-modern-calendar .fc-event {
+    border-radius: var(--agp-border-radius-sm);
+    border: none;
+    padding: 4px 8px;
+    font-weight: 500;
+}
+
+/* ============================================
+   MODERN SEARCH VIEW
+   ============================================ */
+.agp-modern-search {
+    background: var(--agp-bg-white);
+    border-radius: var(--agp-border-radius-lg);
+    box-shadow: var(--agp-shadow-sm);
+    padding: 16px;
+    margin-bottom: 20px;
+}
+
+.agp-modern-search .o_searchview_input {
+    border-radius: var(--agp-border-radius);
+    border: 2px solid var(--agp-border-color);
+    padding: 12px 16px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.agp-modern-search .o_searchview_input:focus {
+    border-color: var(--agp-primary-color);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+.agp-modern-search .o_searchview_facet {
+    background: linear-gradient(135deg, var(--agp-primary-color) 0%, var(--agp-primary-dark) 100%);
+    color: white;
+    border-radius: var(--agp-border-radius-sm);
+    padding: 6px 12px;
+}
+
+/* ============================================
+   MODERN CONTROL PANEL
+   ============================================ */
+.agp-modern-control-panel {
+    background: var(--agp-bg-white);
+    border-radius: var(--agp-border-radius-lg);
+    box-shadow: var(--agp-shadow-sm);
+    padding: 16px 20px;
+    margin-bottom: 20px;
+}
+
+/* ============================================
+   MODERN NAVBAR
+   ============================================ */
+.o_main_navbar {
+    background: linear-gradient(135deg, var(--agp-primary-color) 0%, var(--agp-primary-dark) 100%) !important;
+    box-shadow: var(--agp-shadow-lg);
+    border: none;
+}
+
+.o_main_navbar .dropdown-toggle::after {
+    color: white;
+}
+
+.o_menu_apps .dropdown-toggle,
+.o_menu_sections .dropdown-toggle,
+.o_menu_systray .dropdown-toggle {
+    color: white !important;
+}
+
+.o_menu_apps .dropdown-toggle:hover,
+.o_menu_sections .dropdown-toggle:hover,
+.o_menu_systray .dropdown-toggle:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: var(--agp-border-radius-sm);
+}
+
+/* ============================================
+   MODERN BUTTONS
+   ============================================ */
+.btn-primary {
+    background: linear-gradient(135deg, var(--agp-primary-color) 0%, var(--agp-primary-dark) 100%);
+    border: none;
+    border-radius: var(--agp-border-radius-sm);
+    padding: 10px 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: var(--agp-shadow-md);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--agp-shadow-lg);
+    background: linear-gradient(135deg, var(--agp-primary-dark) 0%, var(--agp-primary-color) 100%);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, var(--agp-secondary-color) 0%, #db2777 100%);
+    border: none;
+    border-radius: var(--agp-border-radius-sm);
+    color: white;
+}
+
+/* ============================================
+   CUSTOM SCROLLBAR
+   ============================================ */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--agp-bg-light);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--agp-primary-color) 0%, var(--agp-primary-dark) 100%);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--agp-primary-dark);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 768px) {
+    .agp-apps-grid-container {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 12px;
+    }
+    
+    .agp-app-item {
+        min-height: 110px;
+        padding: 16px;
+    }
+    
+    .agp-app-icon-wrapper {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .agp-app-icon {
+        font-size: 22px;
+    }
+    
+    .agp-app-name {
+        font-size: 12px;
+    }
+    
+    .agp-submenu-items-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes agp-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes agp-scale-in {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.agp-animate-fade-in {
+    animation: agp-fade-in 0.5s ease-out;
+}
+
+.agp-animate-scale-in {
+    animation: agp-scale-in 0.4s ease-out;
+}

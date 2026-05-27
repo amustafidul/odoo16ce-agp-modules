@@ -7,11 +7,4 @@
             <script type="module" src="/agp_modern_theme_ib/static/src/js/theme.js"/>
         </xpath>
     </template>
-    
-    <!-- Modern Web Client Layout -->
-    <template id="modern_webclient_layout" name="Modern Web Client">
-        <t t-call="web.webclient_layout">
-            <t t-set="body_classname" t-value="'agp-modern-theme ' + (body_classname or '')"/>
-        </t>
-    </template>
 </odoo>

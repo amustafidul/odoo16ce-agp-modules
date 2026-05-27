@@ -87,4 +87,11 @@
             </a>
         </xpath>
     </template>
+    
+    <!-- Modern Header Bar -->
+    <template id="modern_header_bar" inherit_id="web.webclient_layout">
+        <xpath expr="//nav[hasclass('o_main_navbar')]" position="attributes">
+            <attribute name="class">o_main_navbar agp-modern-navbar</attribute>
+        </xpath>
+    </template>
 </odoo>
