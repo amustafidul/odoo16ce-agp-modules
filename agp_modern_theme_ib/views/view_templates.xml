@@ -1,54 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Modern Form View -->
-    <template id="modern_form_view" inherit_id="web.form_view">
-        <xpath expr="//div[hasclass('o_form_view')]" position="attributes">
-            <attribute name="class">o_form_view agp-modern-form</attribute>
+    <!-- Modern Backend Theme Assets -->
+    <template id="assets_backend" name="AGP Modern Theme Assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/agp_modern_theme_ib/static/src/css/theme.css"/>
+            <script type="module" src="/agp_modern_theme_ib/static/src/js/theme.js"/>
         </xpath>
     </template>
-    
-    <!-- Modern Tree/List View -->
-    <template id="modern_tree_view" inherit_id="web.list_view">
-        <xpath expr="//div[hasclass('o_list_view')]" position="attributes">
-            <attribute name="class">o_list_view agp-modern-tree</attribute>
-        </xpath>
-    </template>
-    
-    <!-- Modern Kanban View -->
-    <template id="modern_kanban_view" inherit_id="web.kanban_view">
-        <xpath expr="//div[hasclass('o_kanban_view')]" position="attributes">
-            <attribute name="class">o_kanban_view agp-modern-kanban</attribute>
-        </xpath>
-    </template>
-    
-    <!-- Modern Calendar View -->
-    <template id="modern_calendar_view" inherit_id="web.calendar_view">
-        <xpath expr="//div[hasclass('o_calendar_view')]" position="attributes">
-            <attribute name="class">o_calendar_view agp-modern-calendar</attribute>
-        </xpath>
-    </template>
-    
-    <!-- Modern Search View -->
-    <template id="modern_search_view" inherit_id="web.search_view">
-        <xpath expr="//div[hasclass('o_searchview')]" position="attributes">
-            <attribute name="class">o_searchview agp-modern-search</attribute>
-        </xpath>
-    </template>
-    
-    <!-- Modern Control Panel -->
-    <template id="modern_control_panel" inherit_id="web.control_panel">
-        <xpath expr="//div[hasclass('o_cp_top')]//div[hasclass('o_cp_command_palette')]" position="attributes">
-            <attribute name="class">o_cp_command_palette agp-modern-control-panel</attribute>
-        </xpath>
-    </template>
-    
-    <!-- Dashboard-style App Menu (Grid Layout, No Dropdown) -->
-    <template id="modern_app_menu_dashboard" inherit_id="web.menu_apps">
-        <xpath expr="//div[hasclass('o_menu_apps')]" position="replace">
-            <div class="o_menu_apps agp-app-menu-dashboard">
+
+    <!-- Dashboard App Menu - Replace default dropdown with grid -->
+    <template id="menu_apps_dashboard" inherit_id="web.menu_apps" customize_show="False">
+        <xpath expr="//div[@id='top_menu_apps']" position="replace">
+            <div id="top_menu_apps" class="o_menu_apps agp-app-menu-dashboard">
                 <div class="agp-apps-grid-container">
                     <t t-foreach="menu_data['children']" t-as="app" t-key="app['id']">
-                        <div class="agp-app-item" t-att-data-menu-id="app['id']">
+                        <div class="agp-app-item" t-att-data-menu-id="app['id']" t-att-title="app['name']">
                             <div class="agp-app-icon-wrapper">
                                 <i t-att-class="app.get('icon', 'fa fa-th-large')" class="agp-app-icon"/>
                             </div>
@@ -59,38 +25,66 @@
             </div>
         </xpath>
     </template>
-    
-    <!-- Modern Submenu - Grid Style -->
-    <template id="modern_submenu_grid" inherit_id="web.menu_secondary">
-        <xpath expr="//div[hasclass('o_menu_submenu')]" position="replace">
-            <div class="o_menu_submenu agp-submenu-grid">
-                <div class="agp-submenu-header">
-                    <span class="agp-submenu-title">Menu</span>
-                </div>
-                <div class="agp-submenu-items-grid">
-                    <t t-foreach="menu_data['children']" t-as="menu" t-key="menu['id']">
-                        <t t-call="web.menu_item">
-                            <t t-set="menu" t-value="menu"/>
-                        </t>
-                    </t>
-                </div>
-            </div>
+
+    <!-- Modern Submenu Grid Layout -->
+    <template id="menu_secondary_grid" inherit_id="web.menu_secondary" customize_show="False">
+        <xpath expr="//div[contains(@class, 'o_menu_submenu')]" position="attributes">
+            <attribute name="class">o_menu_submenu agp-submenu-grid</attribute>
         </xpath>
     </template>
 
-    <!-- Modern Menu Item -->
-    <template id="modern_menu_item" inherit_id="web.menu_item">
-        <xpath expr="//a[hasclass('dropdown-item')]" position="replace">
-            <a href="#" class="dropdown-item agp-modern-menu-item" t-att-data-menu-id="menu['id']">
-                <i t-att-class="menu.get('icon', 'fa fa-circle')" class="agp-menu-item-icon"/>
-                <span t-esc="menu['name']" class="agp-menu-item-name"/>
-            </a>
+    <!-- Modern Menu Items -->
+    <template id="menu_item_enhanced" inherit_id="web.menu_item" customize_show="False">
+        <xpath expr="//a[contains(@class, 'dropdown-item')]" position="attributes">
+            <attribute name="class">dropdown-item agp-modern-menu-item</attribute>
         </xpath>
     </template>
-    
-    <!-- Modern Header Bar -->
-    <template id="modern_header_bar" inherit_id="web.webclient_layout">
-        <xpath expr="//nav[hasclass('o_main_navbar')]" position="attributes">
+
+    <!-- Enhanced Form View -->
+    <template id="form_view_enhanced" inherit_id="web.form_view" customize_show="False">
+        <xpath expr="//div[contains(@class, 'o_form_view')]" position="attributes">
+            <attribute name="class">o_form_view agp-modern-form</attribute>
+        </xpath>
+    </template>
+
+    <!-- Enhanced List/Tree View -->
+    <template id="list_view_enhanced" inherit_id="web.list_view" customize_show="False">
+        <xpath expr="//div[contains(@class, 'o_list_view')]" position="attributes">
+            <attribute name="class">o_list_view agp-modern-tree</attribute>
+        </xpath>
+    </template>
+
+    <!-- Enhanced Kanban View -->
+    <template id="kanban_view_enhanced" inherit_id="web.kanban_view" customize_show="False">
+        <xpath expr="//div[contains(@class, 'o_kanban_view')]" position="attributes">
+            <attribute name="class">o_kanban_view agp-modern-kanban</attribute>
+        </xpath>
+    </template>
+
+    <!-- Enhanced Calendar View -->
+    <template id="calendar_view_enhanced" inherit_id="web.calendar_view" customize_show="False">
+        <xpath expr="//div[contains(@class, 'o_calendar_view')]" position="attributes">
+            <attribute name="class">o_calendar_view agp-modern-calendar</attribute>
+        </xpath>
+    </template>
+
+    <!-- Enhanced Search View -->
+    <template id="search_view_enhanced" inherit_id="web.search_view" customize_show="False">
+        <xpath expr="//div[contains(@class, 'o_searchview')]" position="attributes">
+            <attribute name="class">o_searchview agp-modern-search</attribute>
+        </xpath>
+    </template>
+
+    <!-- Enhanced Control Panel -->
+    <template id="control_panel_enhanced" inherit_id="web.control_panel" customize_show="False">
+        <xpath expr="//div[contains(@class, 'o_control_panel')]" position="attributes">
+            <attribute name="class">o_control_panel agp-modern-control-panel</attribute>
+        </xpath>
+    </template>
+
+    <!-- Enhanced Navbar -->
+    <template id="navbar_enhanced" inherit_id="web.webclient_layout" customize_show="False">
+        <xpath expr="//nav[contains(@class, 'o_main_navbar')]" position="attributes">
             <attribute name="class">o_main_navbar agp-modern-navbar</attribute>
         </xpath>
     </template>
