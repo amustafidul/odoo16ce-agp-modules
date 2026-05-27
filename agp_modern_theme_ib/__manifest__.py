@@ -15,12 +15,11 @@
     "depends": ["web"],
     "data": [
         "views/webclient_templates.xml",
-        "views/menu_templates.xml",
         "views/view_templates.xml",
     ],
     "assets": {
         "web.assets_backend": [
-            "agp_modern_theme_ib/static/src/scss/theme.scss",
+            "agp_modern_theme_ib/static/src/css/theme.css",
             "agp_modern_theme_ib/static/src/js/theme.js",
         ],
     },

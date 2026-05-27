@@ -1,7 +1,51 @@
 ```
-# Compiled CSS
-agp_modern_theme_ib/static/src/css/theme.css
+# Python
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
 
-# SCSS source (if generated from SCSS)
-*.scss
+# Odoo specific
+*.pot
+*.po
+*.mo
+*i18n-cache*
+
+# Dependencies
+.venv/
+venv/
+env/
+node_modules/
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# Logs
+*.log
+
+# Environment variables
+.env
+.env.local
+*.env.*
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Coverage reports
+.coverage
+coverage/
+htmlcov/
+
+# Testing
+.pytest_cache/
+.mypy_cache/
 ```
