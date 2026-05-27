@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inherit webclient template for modern styling -->
+    <template id="modern_webclient_layout" inherit_id="web.webclient">
+        <xpath expr="//div[@id='oe_application']" position="before">
+            <t t-if="not no_menu">
+                <div class="agp-modern-header">
+                    <div class="agp-header-content">
+                        <span class="agp-company-name">Odoo 16 Modern</span>
+                    </div>
+                </div>
+            </t>
+        </xpath>
+    </template>
+
+    <!-- Modernize the main content area -->
+    <template id="modern_content_view" inherit_id="web.content">
+        <xpath expr="//div[hasclass('o_action_manager')]" position="attributes">
+            <attribute name="class">o_action_manager agp-modern-content</attribute>
+        </xpath>
+    </template>
+</odoo>

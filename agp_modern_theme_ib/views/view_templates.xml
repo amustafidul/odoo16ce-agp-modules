@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Modern Form View -->
+    <template id="modern_form_view" inherit_id="web.form_view">
+        <xpath expr="//div[hasclass('o_form_view')]" position="attributes">
+            <attribute name="class">o_form_view agp-modern-form-view</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('o_form_sheet_bg')]" position="attributes">
+            <attribute name="class">o_form_sheet_bg agp-modern-sheet-bg</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('o_form_sheet')]" position="attributes">
+            <attribute name="class">o_form_sheet agp-modern-sheet</attribute>
+        </xpath>
+    </template>
+
+    <!-- Modern Tree/List View -->
+    <template id="modern_tree_view" inherit_id="web.list_view">
+        <xpath expr="//div[hasclass('o_list_view')]" position="attributes">
+            <attribute name="class">o_list_view agp-modern-tree-view</attribute>
+        </xpath>
+        <xpath expr="//table[hasclass('o_list_table')]" position="attributes">
+            <attribute name="class">o_list_table agp-modern-table</attribute>
+        </xpath>
+    </template>
+
+    <!-- Modern Kanban View -->
+    <template id="modern_kanban_view" inherit_id="web.kanban_view">
+        <xpath expr="//div[hasclass('o_kanban_view')]" position="attributes">
+            <attribute name="class">o_kanban_view agp-modern-kanban-view</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('o_kanban_renderer')]" position="attributes">
+            <attribute name="class">o_kanban_renderer agp-modern-kanban-renderer</attribute>
+        </xpath>
+    </template>
+
+    <!-- Modern Calendar View -->
+    <template id="modern_calendar_view" inherit_id="web.calendar_view">
+        <xpath expr="//div[hasclass('o_calendar_view')]" position="attributes">
+            <attribute name="class">o_calendar_view agp-modern-calendar-view</attribute>
+        </xpath>
+    </template>
+
+    <!-- Modern Search View -->
+    <template id="modern_search_view" inherit_id="web.search_view">
+        <xpath expr="//div[hasclass('o_searchview')]" position="attributes">
+            <attribute name="class">o_searchview agp-modern-searchview</attribute>
+        </xpath>
+    </template>
+
+    <!-- Modern Control Panel -->
+    <template id="modern_control_panel" inherit_id="web.control_panel">
+        <xpath expr="//div[hasclass('o_cp_main')]"/>
+    </template>
+</odoo>

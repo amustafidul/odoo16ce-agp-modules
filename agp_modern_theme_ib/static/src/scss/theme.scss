@@ -1,0 +1,530 @@
+// AGP Modern Theme - Main SCSS Styles
+// Beautiful and Modern Backend Theme for Odoo 16 Community
+
+// ============================================
+// COLOR VARIABLES - Modern Color Palette
+// ============================================
+$agp-primary-color: #6366f1; // Indigo
+$agp-primary-dark: #4f46e5;
+$agp-primary-light: #818cf8;
+$agp-secondary-color: #ec4899; // Pink accent
+$agp-accent-color: #06b6d4; // Cyan
+$agp-success-color: #10b981;
+$agp-warning-color: #f59e0b;
+$agp-danger-color: #ef4444;
+$agp-info-color: #3b82f6;
+
+$agp-bg-light: #f8fafc;
+$agp-bg-white: #ffffff;
+$agp-bg-dark: #1e293b;
+
+$agp-text-primary: #1e293b;
+$agp-text-secondary: #64748b;
+$agp-text-light: #94a3b8;
+
+$agp-border-color: #e2e8f0;
+$agp-border-radius: 12px;
+$agp-border-radius-sm: 8px;
+$agp-border-radius-lg: 16px;
+
+$agp-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+$agp-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+$agp-shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.12);
+$agp-shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.15);
+$agp-shadow-elegant: 0 8px 32px rgba(99, 102, 241, 0.15);
+
+// ============================================
+// GLOBAL STYLES
+// ============================================
+.agp-smooth-transitions * {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.o_web_client {
+    background: linear-gradient(135deg, $agp-bg-light 0%, #f1f5f9 100%);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+// ============================================
+// MODERN HEADER
+// ============================================
+.agp-modern-header {
+    background: linear-gradient(135deg, $agp-primary-color 0%, $agp-primary-dark 100%);
+    color: white;
+    padding: 12px 24px;
+    box-shadow: $agp-shadow-lg;
+    position: relative;
+    z-index: 100;
+
+    .agp-header-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1400px;
+        margin: 0 auto;
+
+        .agp-company-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    }
+}
+
+// ============================================
+// APP MENU DASHBOARD (GRID LAYOUT)
+// ============================================
+.agp-app-menu-dashboard {
+    background: $agp-bg-white;
+    padding: 24px;
+    border-bottom: 1px solid $agp-border-color;
+    box-shadow: $agp-shadow-sm;
+
+    .agp-apps-grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 20px;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .agp-app-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 24px 16px;
+        background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+        border: 2px solid $agp-border-color;
+        border-radius: $agp-border-radius-lg;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba($agp-primary-color, 0.05) 0%, rgba($agp-secondary-color, 0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        &:hover {
+            transform: translateY(-8px);
+            border-color: $agp-primary-light;
+            box-shadow: $agp-shadow-elegant;
+
+            &::before {
+                opacity: 1;
+            }
+
+            .agp-app-icon-wrapper {
+                transform: scale(1.15);
+                background: linear-gradient(135deg, $agp-primary-color 0%, $agp-primary-dark 100%);
+
+                i {
+                    color: white;
+                }
+            }
+
+            .agp-app-name {
+                color: $agp-primary-color;
+                font-weight: 600;
+            }
+        }
+
+        .agp-app-icon-wrapper {
+            width: 64px;
+            height: 64px;
+            border-radius: $agp-border-radius;
+            background: linear-gradient(135deg, $agp-bg-light 0%, $agp-border-color 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            z-index: 1;
+
+            i {
+                font-size: 28px;
+                color: $agp-primary-color;
+                transition: all 0.3s ease;
+            }
+        }
+
+        .agp-app-name {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: $agp-text-primary;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        &.agp-app-selected {
+            border-color: $agp-primary-color;
+            background: linear-gradient(135deg, rgba($agp-primary-color, 0.08) 0%, rgba($agp-primary-light, 0.08) 100%);
+        }
+    }
+}
+
+// ============================================
+// SUBMENU GRID
+// ============================================
+.agp-submenu-grid {
+    background: $agp-bg-white;
+    border-left: 1px solid $agp-border-color;
+    padding: 16px;
+
+    .agp-submenu-header {
+        margin-bottom: 16px;
+        padding-bottom: 12px;
+        border-bottom: 2px solid $agp-border-color;
+
+        .agp-submenu-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: $agp-primary-color;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    }
+
+    .agp-submenu-items-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+}
+
+.agp-modern-menu-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px !important;
+    border-radius: $agp-border-radius-sm;
+    color: $agp-text-primary !important;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    margin-bottom: 4px;
+
+    &:hover {
+        background: linear-gradient(135deg, rgba($agp-primary-color, 0.08) 0%, rgba($agp-accent-color, 0.08) 100%);
+        color: $agp-primary-color !important;
+        transform: translateX(4px);
+
+        .agp-menu-item-icon {
+            color: $agp-primary-color;
+        }
+    }
+
+    .agp-menu-item-icon {
+        margin-right: 12px;
+        font-size: 14px;
+        color: $agp-text-secondary;
+        transition: color 0.2s ease;
+    }
+
+    .agp-menu-item-name {
+        flex: 1;
+    }
+}
+
+// ============================================
+// MODERN NAVBAR
+// ============================================
+.agp-modern-navbar {
+    background: $agp-bg-white !important;
+    box-shadow: $agp-shadow-md;
+    border-bottom: 1px solid $agp-border-color;
+}
+
+// ============================================
+// FORM VIEW STYLES
+// ============================================
+.agp-modern-form-view {
+    background: $agp-bg-light;
+    border-radius: $agp-border-radius-lg;
+    padding: 24px;
+
+    .o_form_sheet_bg {
+        background: transparent;
+        border: none;
+    }
+
+    .agp-modern-sheet {
+        background: $agp-bg-white;
+        border-radius: $agp-border-radius-lg;
+        box-shadow: $agp-shadow-elegant;
+        padding: 32px;
+        border: 1px solid $agp-border-color;
+
+        .o_field_widget {
+            padding: 12px 16px;
+            border: 2px solid $agp-border-color;
+            border-radius: $agp-border-radius-sm;
+            transition: all 0.2s ease;
+
+            &:hover,
+            &.agp-field-focus {
+                border-color: $agp-primary-light;
+                box-shadow: 0 0 0 3px rgba($agp-primary-color, 0.1);
+            }
+
+            &:focus-within {
+                border-color: $agp-primary-color;
+                box-shadow: 0 0 0 4px rgba($agp-primary-color, 0.15);
+            }
+        }
+    }
+
+    .o_form_statusbar {
+        .btn {
+            border-radius: $agp-border-radius-sm;
+            font-weight: 600;
+            padding: 8px 20px;
+            transition: all 0.2s ease;
+
+            &:hover {
+                transform: translateY(-2px);
+                box-shadow: $agp-shadow-md;
+            }
+        }
+    }
+}
+
+// ============================================
+// TREE/LIST VIEW STYLES
+// ============================================
+.agp-modern-tree-view {
+    background: $agp-bg-white;
+    border-radius: $agp-border-radius-lg;
+    box-shadow: $agp-shadow-md;
+    overflow: hidden;
+
+    .agp-modern-table {
+        background: $agp-bg-white;
+
+        thead {
+            background: linear-gradient(135deg, $agp-primary-color 0%, $agp-primary-dark 100%);
+            color: white;
+
+            th {
+                padding: 16px 12px;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                font-size: 0.85rem;
+                border: none;
+            }
+        }
+
+        tbody {
+            tr {
+                transition: all 0.2s ease;
+                border-bottom: 1px solid $agp-border-color;
+
+                &:hover,
+                &.agp-row-hover {
+                    background: linear-gradient(135deg, rgba($agp-primary-color, 0.04) 0%, rgba($agp-accent-color, 0.04) 100%);
+                    transform: scale(1.005);
+                }
+
+                &.agp-row-striped {
+                    background: rgba($agp-bg-light, 0.5);
+                }
+
+                td {
+                    padding: 14px 12px;
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
+}
+
+// ============================================
+// KANBAN VIEW STYLES
+// ============================================
+.agp-modern-kanban-view {
+    background: $agp-bg-light;
+    padding: 24px;
+    border-radius: $agp-border-radius-lg;
+
+    .agp-modern-kanban-renderer {
+        .o_kanban_record {
+            background: $agp-bg-white;
+            border: 1px solid $agp-border-color;
+            border-radius: $agp-border-radius;
+            box-shadow: $agp-shadow-sm;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+
+            &:hover,
+            &.agp-kanban-card-hover {
+                transform: translateY(-8px);
+                box-shadow: $agp-shadow-elegant;
+                border-color: $agp-primary-light;
+            }
+
+            &.agp-card-shadow {
+                box-shadow: $agp-shadow-md;
+            }
+
+            .o_kanban_card_header {
+                background: linear-gradient(135deg, rgba($agp-primary-color, 0.05) 0%, rgba($agp-accent-color, 0.05) 100%);
+                border-bottom: 1px solid $agp-border-color;
+                padding: 12px 16px;
+            }
+        }
+    }
+}
+
+// ============================================
+// CALENDAR VIEW STYLES
+// ============================================
+.agp-modern-calendar-view {
+    background: $agp-bg-white;
+    border-radius: $agp-border-radius-lg;
+    box-shadow: $agp-shadow-md;
+    padding: 24px;
+
+    .fc-toolbar {
+        h2 {
+            color: $agp-primary-color;
+            font-weight: 700;
+        }
+
+        .btn {
+            border-radius: $agp-border-radius-sm;
+            font-weight: 600;
+        }
+    }
+
+    .fc-daygrid-day {
+        border-radius: $agp-border-radius-sm;
+        transition: all 0.2s ease;
+
+        &:hover {
+            background: rgba($agp-primary-color, 0.05);
+        }
+    }
+
+    .fc-event {
+        border-radius: $agp-border-radius-sm;
+        border: none;
+        box-shadow: $agp-shadow-sm;
+        transition: all 0.2s ease;
+
+        &:hover {
+            transform: scale(1.02);
+            box-shadow: $agp-shadow-md;
+        }
+    }
+}
+
+// ============================================
+// SEARCH VIEW STYLES
+// ============================================
+.agp-modern-searchview {
+    background: $agp-bg-white;
+    border: 2px solid $agp-border-color;
+    border-radius: $agp-border-radius;
+    padding: 8px 16px;
+    box-shadow: $agp-shadow-sm;
+    transition: all 0.2s ease;
+
+    &:hover,
+    &:focus-within {
+        border-color: $agp-primary-light;
+        box-shadow: 0 0 0 3px rgba($agp-primary-color, 0.1);
+    }
+
+    .o_searchview_input {
+        font-size: 0.95rem;
+        color: $agp-text-primary;
+    }
+
+    .o_searchview_facet {
+        background: linear-gradient(135deg, $agp-primary-color 0%, $agp-primary-dark 100%);
+        color: white;
+        border-radius: $agp-border-radius-sm;
+    }
+}
+
+// ============================================
+// BUTTONS AND ACTIONS
+// ============================================
+.o_btn, .btn {
+    &.agp-btn-hover {
+        transform: translateY(-2px);
+        box-shadow: $agp-shadow-md;
+    }
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, $agp-primary-color 0%, $agp-primary-dark 100%);
+    border: none;
+    border-radius: $agp-border-radius-sm;
+    font-weight: 600;
+    padding: 10px 24px;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background: linear-gradient(135deg, $agp-primary-dark 0%, $agp-primary-color 100%);
+        transform: translateY(-2px);
+        box-shadow: $agp-shadow-lg;
+    }
+}
+
+// ============================================
+// SCROLLBAR STYLING
+// ============================================
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: $agp-bg-light;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, $agp-primary-color 0%, $agp-primary-dark 100%);
+    border-radius: 5px;
+
+    &:hover {
+        background: linear-gradient(135deg, $agp-primary-dark 0%, $agp-primary-color 100%);
+    }
+}
+
+// ============================================
+// RESPONSIVE DESIGN
+// ============================================
+@media (max-width: 768px) {
+    .agp-apps-grid-container {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)) !important;
+        gap: 12px !important;
+    }
+
+    .agp-app-item {
+        padding: 16px 12px !important;
+
+        .agp-app-icon-wrapper {
+            width: 48px !important;
+            height: 48px !important;
+        }
+
+        .agp-app-name {
+            font-size: 0.8rem !important;
+        }
+    }
+}
