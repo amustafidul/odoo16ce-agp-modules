@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Dashboard-style App Menu (Grid Layout, No Dropdown) -->
+    <template id="modern_app_menu_dashboard" inherit_id="web.app_menu">
+        <xpath expr="//div[hasclass('o_menu_apps')]" position="replace">
+            <div class="o_menu_apps agp-app-menu-dashboard">
+                <div class="agp-apps-grid-container">
+                    <t t-foreach="menu_data['children']" t-as="app" t-key="app['id']">
+                        <div class="agp-app-item" t-att-data-menu-id="app['id']">
+                            <div class="agp-app-icon-wrapper">
+                                <i t-att-class="app.get('icon', 'fa fa-th-large')" class="agp-app-icon"/>
+                            </div>
+                            <span class="agp-app-name" t-esc="app['name']"/>
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+    <!-- Modern Submenu - Grid Style -->
+    <template id="modern_submenu_grid" inherit_id="web.menu_secondary">
+        <xpath expr="//div[hasclass('o_menu_submenu')]" position="replace">
+            <div class="o_menu_submenu agp-submenu-grid">
+                <div class="agp-submenu-header">
+                    <span class="agp-submenu-title">Menu</span>
+                </div>
+                <div class="agp-submenu-items-grid">
+                    <t t-foreach="menu_data['children']" t-as="menu" t-key="menu['id']">
+                        <t t-call="web.menu_item">
+                            <t t-set="menu" t-value="menu"/>
+                        </t>
+                    </t>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+    <!-- Modern Menu Item -->
+    <template id="modern_menu_item" inherit_id="web.menu_item">
+        <xpath expr="//a[hasclass('dropdown-item')]" position="replace">
+            <a href="#" class="dropdown-item agp-modern-menu-item" t-att-data-menu-id="menu['id']">
+                <i t-att-class="menu.get('icon', 'fa fa-circle')" class="agp-menu-item-icon"/>
+                <span t-esc="menu['name']" class="agp-menu-item-name"/>
+            </a>
+        </xpath>
+    </template>
+
+    <!-- Modernize the navbar -->
+    <template id="modern_navbar" inherit_id="web.navbar">
+        <xpath expr="//nav[hasclass('o_main_navbar')]" position="attributes">
+            <attribute name="class">o_main_navbar agp-modern-navbar</attribute>
+        </xpath>
+    </template>
+</odoo>

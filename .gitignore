@@ -1,0 +1,32 @@
+```
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+.venv/
+.env
+.env.local
+.env.*
+
+# Build and distribution artifacts
+build/
+dist/
+*.egg-info/
+
+# Odoo specific
+*.pot
+*.po
+*i18n*
+*static/css*
+*static/js*
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+```
