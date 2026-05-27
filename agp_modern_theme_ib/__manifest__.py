@@ -14,7 +14,6 @@
     "category": "Themes/Backend",
     "depends": ["web"],
     "data": [
-        "views/webclient_templates.xml",
         "views/view_templates.xml",
     ],
     "assets": {
